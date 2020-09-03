@@ -1,3 +1,5 @@
+console.log('Hello app')
+
 import Vue from 'vue'
 import App from './App'
 import Store from '../store'

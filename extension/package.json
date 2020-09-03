@@ -1,8 +1,8 @@
 {
   "name": "extension",
-  "version": "1.0.36",
-  "description": "A browser extension to securely manage accounts and addresses, for use with Lunie.io.",
-  "author": "Lunie <hello@lunie.io> (https://lunie.io)",
+  "version": "1.0.1",
+  "description": "A browser extension to securely manage accounts and addresses, for use with DXOS.org.",
+  "author": "DXOS <dxos@dxos.org> (https://dxos.org)",
   "licenses": [
     {
       "type": "Apache-2"

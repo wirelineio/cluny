@@ -14,7 +14,8 @@ Vue.use(VueRouter)
 Vue.directive(`focus-last`, focusParentLast)
 
 export default (store) => {
+  const routesValue = routes(store)
   return new VueRouter({
-    routes: routes(store)
+    routes: routesValue
   })
 }

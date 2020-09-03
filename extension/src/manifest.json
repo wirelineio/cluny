@@ -1,6 +1,6 @@
 {
-  "name": "Lunie Browser Extension",
-  "description": "A browser extension for Lunie.io",
+  "name": "Cluny Browser Extension",
+  "description": "A browser extension for DXOS.org",
   "version": null,
   "manifest_version": 2,
   "icons": {
@@ -33,7 +33,8 @@
         "https://app.lunie.io/*",
         "https://www.lunie.io/*",
         "https://*.netlify.com/*",
-        "https://*.netlify.app/*"
+        "https://*.netlify.app/*",
+        "https://js.intercomcdn.com/*"
       ],
       "js": [
         "contentScript.js"
