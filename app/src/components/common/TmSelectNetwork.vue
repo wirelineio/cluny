@@ -27,7 +27,8 @@ export default {
     ...mapGetters([`networks`]),
     mainNetworks() {
       return [
-        { id: 'mainnet', chain_id: 'wns-mainnet', testnet: false, title: 'Wireline Mainnet', icon: 'https://avatars3.githubusercontent.com/u/57182821?s=60&v=4', slug: 'mainnet', default: true }
+        { id: 'mainnet', chain_id: 'wns-mainnet', testnet: false, title: 'Wireline Mainnet', icon: 'https://avatars3.githubusercontent.com/u/57182821?s=60&v=4', slug: 'mainnet', default: true },
+        { id: 'halo', chain_id: 'halo', testnet: false, title: 'DXOS.org HALO', icon: 'https://avatars3.githubusercontent.com/u/57182821?s=60&v=4', slug: 'halo', default: true }
         ]
     },
     testNetworks() {
