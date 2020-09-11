@@ -33,7 +33,7 @@ export default {
     },
     testNetworks() {
       return [
-        { id: 'moon', chain_id: 'moon', testnet: true, title: 'Moon Devnet', icon: 'https://avatars3.githubusercontent.com/u/57182821?s=60&v=4', slug: 'moon', default: true },
+        { id: 'moon', chain_id: 'moon', testnet: true, title: 'Moon Devnet', icon: 'https://avatars3.githubusercontent.com/u/57182821?s=60&v=4', slug: 'moon', default: true, HDPaths: [{ value: "m/44'/118'/0'/0/0", name: "Moon HD Path" }], defaultHDPath: "m/44'/118'/0'/0/0" },
         { id: 'phobos', chain_id: 'phobos', testnet: true, title: 'Phobos Testnet', icon: 'https://avatars3.githubusercontent.com/u/57182821?s=60&v=4', slug: 'phobos', default: true },
         { id: 'mars', chain_id: 'mars', testnet: true, title: 'Mars Testnet', icon: 'https://avatars3.githubusercontent.com/u/57182821?s=60&v=4', slug: 'mars', default: true },
         { id: 'mercury', chain_id: 'mercury', testnet: true, title: 'Mercury Testnet', icon: 'https://avatars3.githubusercontent.com/u/57182821?s=60&v=4', slug: 'mercury', default: true },
