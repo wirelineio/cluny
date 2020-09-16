@@ -5,6 +5,7 @@ import { cryptoWaitReady } from "@polkadot/util-crypto"
 function getCosmosAddressCreator(bech32Prefix, HDPath, curve) {
   return async (seedPhrase) => {
     const { getNewWalletFromSeed } = await import("@lunie/cosmos-keys")
+    console.log(`${seedPhrase}, ${bech32Prefix}, ${HDPath}, ${curve}`)
     return getNewWalletFromSeed(seedPhrase, bech32Prefix, HDPath, curve)
   }
 }

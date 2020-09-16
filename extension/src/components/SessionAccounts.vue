@@ -3,10 +3,10 @@
     <div class="session-container">
       <div class="accounts-header">
         <h2 class="session-title">
-          <img class="lunie-logo" src="../images/lunie-logo-white.svg" />
+          <img class="lunie-logo" src="../images/dxos-logo-white.svg" />
         </h2>
         <p>
-          You can use the account(s) below to explore Lunie.io and to approve
+          You can use the account(s) below to explore and to approve
           transactions.
         </p>
       </div>
@@ -14,7 +14,7 @@
         <AccountList
           :accounts="accounts"
           :button-action="goToLunie"
-          button-text="Go to Lunie"
+          button-text="Block Explore"
         />
       </div>
       <router-link class="back-link" to="/welcome"
@@ -50,7 +50,8 @@ export default {
         )
       }
       window.open(
-        `${config.lunieLink}/extension/${account.address}/${account.network}`,
+        // `${config.lunieLink}/extension/${account.address}/${account.network}`,
+        'https://console.devnet-2.deepstacksoft.com/',
         '_blank',
         'noreferrer noopener'
       )

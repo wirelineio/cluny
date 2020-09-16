@@ -51,6 +51,7 @@
   "dependencies": {
     "@babel/runtime": "^7.10.5",
     "@babel/runtime-corejs3": "^7.10.4",
+    "@wirelineio/registry-client": "^1.1.0-beta.2",
     "@lunie/cosmos-api": "^0.0.23",
     "@lunie/cosmos-keys": "^0.3.1",
     "@polkadot/api": "^1.31.2",
