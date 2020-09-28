@@ -14,7 +14,7 @@ export default ({ apollo }) => {
     const networks = [
       { id: 'mainnet', chain_id: 'wns-mainnet', network_type: 'cosmos', address_prefix: 'cosmos', testnet: false, title: 'Wireline Mainnet', icon: 'https://avatars3.githubusercontent.com/u/57182821?s=60&v=4', slug: 'mainnet', default: false },
       { id: 'halo', chain_id: 'halo', network_type: 'halo', testnet: false, title: 'DXOS.org HALO', icon: 'https://avatars3.githubusercontent.com/u/57182821?s=60&v=4', slug: 'halo', default: false },
-      { id: 'moon', chain_id: 'moon', network_type: 'cosmos', address_prefix: 'cosmos', curves : [{value: 'ed25519', name: 'Edwards curve'}], defaultCurve: 'ed25519', testnet: true, title: 'Moon Devnet', icon: 'https://avatars3.githubusercontent.com/u/57182821?s=60&v=4', slug: 'moon', default: true, HDPaths: [{ value: "m/44'/118'/0'/0/0", name: "Moon HD Path" }], defaultHDPath: "m/44'/118'/0'/0/0" },
+      { id: 'moon', chain_id: 'moon', network_type: 'cosmos', address_prefix: 'cosmos', curves : '[{"value": "ed25519", "name": "Edwards curve"}]', defaultCurve: 'ed25519', testnet: true, title: 'Moon Devnet', icon: 'https://avatars3.githubusercontent.com/u/57182821?s=60&v=4', slug: 'moon', default: true, HDPaths: '[{ "value": "m/44\'/118\'/0\'/0/0", "name": "Moon HD Path" }]', defaultHDPath: "m/44'/118'/0'/0/0" },
       { id: 'phobos', chain_id: 'phobos', network_type: 'cosmos', testnet: true, title: 'Phobos Testnet', icon: 'https://avatars3.githubusercontent.com/u/57182821?s=60&v=4', slug: 'phobos', default: false },
       { id: 'mars', chain_id: 'mars', network_type: 'cosmos', testnet: true, title: 'Mars Testnet', icon: 'https://avatars3.githubusercontent.com/u/57182821?s=60&v=4', slug: 'mars', default: false },
       { id: 'mercury', chain_id: 'mercury', network_type: 'cosmos', testnet: true, title: 'Mercury Testnet', icon: 'https://avatars3.githubusercontent.com/u/57182821?s=60&v=4', slug: 'mercury', default: false },
@@ -188,6 +188,7 @@ export default ({ apollo }) => {
       curve
     }
   ) => {
+    console.log('Here approveSignRequest')
     return new Promise((resolve, reject) => {
       chrome.runtime.sendMessage(
         {
@@ -206,6 +207,7 @@ export default ({ apollo }) => {
         },
         function (response) {
           if (response && response.error) {
+            console.log('Rejecting')
             return reject(response.error)
           }
           resolve()

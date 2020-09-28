@@ -15,6 +15,7 @@ export async function signMessageHandler(
   sender,
   sendResponse
 ) {
+  console.log('Received sign message: '.concat(JSON.stringify(event)))
   switch (event.type) {
     case 'LUNIE_SIGN_REQUEST_CANCEL': {
       signRequestQueue.unqueueSignRequestForTab(sender.tab.id)
@@ -57,6 +58,7 @@ export async function signMessageHandler(
         network,
         tabID: sender.tab.id
       })
+      console.log(`Sign request queued: ${transactionData} ${network}`);
       break
     }
     case 'SIGN': {
@@ -72,13 +74,15 @@ export async function signMessageHandler(
         curve
       } = event.payload
 
+      console.log('Processing SIGN')
+
       const transactionManager = new TransactionManager()
       let polkadotAPI
       if (network.network_type === `polkadot`) {
         polkadotAPI = await getPolkadotAPI(network)
       }
       try {
-        const broadcastableObject = await transactionManager.createAndSignLocally(
+        const broadcastableObject = await transactionManager.createAndSignLocallyWns(
           messageType,
           message,
           transactionData,
@@ -91,6 +95,7 @@ export async function signMessageHandler(
           curve
         )
         const { tabID } = signRequestQueue.unqueueSignRequest(id)
+        console.log('Sending response')
         sendAsyncResponseToLunie(tabID, {
           type: 'LUNIE_SIGN_REQUEST_RESPONSE',
           payload: broadcastableObject
@@ -120,6 +125,7 @@ export async function signMessageHandler(
   }
 }
 export async function walletMessageHandler(message, sender, sendResponse) {
+  console.log(`Got message in extension: ${JSON.stringify(message)}`)
   switch (message.type) {
     case 'GET_WALLETS': {
       sendResponse(getWalletIndex(true))

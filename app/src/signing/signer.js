@@ -57,6 +57,7 @@ export async function getSigner(
 }
 
 async function getCosmosLocalSigner(wallet) {
+  console.log('Getting signer')
   const { signWithPrivateKey } = await import("@lunie/cosmos-keys")
 
   return (signMessage) => {

@@ -7,6 +7,7 @@ function createSignedTransactionObject(tx, signature) {
 
 // attaches the request meta data to the message
 function createStdTx({ gasEstimate, fee, memo }, messages) {
+  console.log(`createStdTx ${gasEstimate}, ${fee}, ${memo}`)
   const fees = fee
     .map(({ amount, denom }) => ({
       amount: String(Math.round(amount)),
@@ -95,14 +96,16 @@ export async function getSignableObject(
   chainMessages,
   { gasEstimate, fee, memo = ``, chainId, accountNumber, accountSequence }
 ) {
+  console.log("Here getSignableObject1")
   // sign transaction
   const stdTx = createStdTx({ gasEstimate, fee, memo }, chainMessages)
+  console.log("Here getSignableObject2")
   const signMessage = createSignMessage(stdTx, {
     accountSequence,
     accountNumber,
     chainId,
   })
-
+  console.log("Here getSignableObject3")
   return signMessage
 }
 

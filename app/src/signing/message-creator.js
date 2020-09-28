@@ -5,7 +5,7 @@ async function getNetworkSpecificMessageCreator(network, messageType) {
   try {
     networkMessages = await import(`./networkMessages/${network}.js`)
   } catch (err) {
-    throw new Error("Signing for this network is not enabled.")
+    throw new Error(`Signing for this ${network} is not enabled.`)
   }
   const messageFormatter = networkMessages[messageType]
 

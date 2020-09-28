@@ -147,6 +147,7 @@ export default class TransactionManager {
     HDPath,
     curve
   ) {
+    console.log('Here createAndSignLocally1')
     const messages = await getMessage(
       network,
       messageType,
@@ -154,6 +155,7 @@ export default class TransactionManager {
       message,
       polkadotAPI
     )
+    console.log('Here createAndSignLocally2')
     const signer = await getSigner(
       signingType,
       {
@@ -165,12 +167,15 @@ export default class TransactionManager {
       },
       config // only needed for Ledger
     )
-
+    console.log('Here createAndSignLocally3')
     const { getSignableObject, getBroadcastableObject } = await import(
       `./networkMessages/${network.network_type}-transactions.js`
     )
+    console.log(`Here createAndSignLocally4 ${transactionData}`)
     const signableObject = await getSignableObject(messages, transactionData)
+    console.log('Here createAndSignLocally5')
     const signedContext = await signer(signableObject)
+    console.log('Here createAndSignLocally6')
     const broadcastableObject = await getBroadcastableObject(
       messages,
       transactionData,
@@ -178,8 +183,60 @@ export default class TransactionManager {
       HDPath,
       curve
     )
-
+    console.log('Here createAndSignLocally7')
     return broadcastableObject
+  }
+
+  async createAndSignLocallyWns(
+    messageType,
+    message,
+    transactionData,
+    senderAddress,
+    network,
+    signingType,
+    password,
+    polkadotAPI,
+    HDPath,
+    curve
+  ) {
+    console.log('Here createAndSignLocally1')
+    const messages = await getMessage(
+      network,
+      messageType,
+      senderAddress,
+      message,
+      polkadotAPI
+    )
+    console.log('Here createAndSignLocally2')
+    const signer = await getSigner(
+      signingType,
+      {
+        address: senderAddress,
+        password,
+        network,
+        HDPath,
+        curve,
+      },
+      config // only needed for Ledger
+    )
+    console.log('Here createAndSignLocally3')
+    const { getSignableObject, getBroadcastableObject } = await import(
+      `./networkMessages/${network.network_type}-transactions.js`
+    )
+    console.log(`Here createAndSignLocally4 ${transactionData}`)
+    //const signableObject = await getSignableObject(messages, transactionData)
+    console.log('Here createAndSignLocally5')
+    const signedContext = await signer(messages)
+    console.log('Here createAndSignLocally6')
+    //const broadcastableObject = await getBroadcastableObject(
+    //  messages,
+    //  transactionData,
+    //  signedContext,
+    //  HDPath,
+    //  curve
+    //)
+    console.log(`Here createAndSignLocally7: ${JSON.stringify(signedContext)}`)
+    return signedContext
   }
 
   async broadcastTransaction(

@@ -113,7 +113,9 @@ export default {
       },
     },
     networkCryptoTypes() {
+      console.log('Here')
       if (this.currentNetwork.network_type === `cosmos`) {
+        console.log(`String: ${this.currentNetwork.HDPaths}`)
         return JSON.parse(this.currentNetwork.HDPaths)
       } else if (this.currentNetwork.network_type === `polkadot`) {
         return JSON.parse(this.currentNetwork.curves)

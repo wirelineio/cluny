@@ -22,6 +22,7 @@ signRequestQueue.unqueueSignRequest('')
 
 // main message handler
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  
   if (!senderAllowed(sender)) {
     console.error('Sender is not whitelisted')
     return

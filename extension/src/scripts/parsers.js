@@ -10,20 +10,21 @@ export function getDisplayTransaction(
 ) {
   let fees = []
   if (network.network_type === 'cosmos') {
-    const coinLookup = network.coinLookup.find(
-      ({ chainDenom }) =>
-        chainDenom === transactionData.fee.find(({ denom }) => denom).denom
-    )
-    fees = [
-      {
-        amount: BigNumber(
-          transactionData.fee.find(({ amount }) => amount).amount
-        )
-          .times(coinLookup.chainToViewConversionFactor)
-          .toString(),
-        denom: coinLookup.viewDenom
-      }
-    ]
+    //const coinLookup = network.coinLookup.find(
+    //  ({ chainDenom }) =>
+    //    chainDenom === transactionData.fee.find(({ denom }) => denom).denom
+    //)
+    //fees = [
+    //  {
+    //    amount: BigNumber(
+    //      transactionData.fee.find(({ amount }) => amount).amount
+    //    )
+    //      .times(coinLookup.chainToViewConversionFactor)
+    //      .toString(),
+    //    denom: coinLookup.viewDenom
+    //  }
+    //]
+    fees = [{amount: 1, denom: 'uwire'}]
   }
   if (
     network.network_type === 'polkadot' &&

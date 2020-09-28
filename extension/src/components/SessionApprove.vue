@@ -129,6 +129,7 @@ export default {
       } else {
         if (this.networks.length === 0) return undefined
         // new format
+        console.log(`Looking for network ${this.signRequest.network} in: ${JSON.stringify(this.networks)}`)
         const network = this.networks.find(
           ({ id }) => id === this.signRequest.network
         )
@@ -199,6 +200,7 @@ export default {
         const network = this.networks.find(
           ({ id }) => id === this.signRequest.network
         )
+        console.log('Got here approve 1')
         await this.$store
           .dispatch('approveSignRequest', {
             ...this.signRequest,
@@ -207,16 +209,20 @@ export default {
             curve: thisAccount.curve || network.defaultCurve
           })
           .catch((error) => {
+            console.log('Got here approve 2')
             this.errorOnApproval = error
             this.passwordError =
               this.errorOnApproval === 'Incorrect password' ? true : false
             console.error(error)
             return
           })
+        console.log('Got here approve 3')
         this.isTransactionBroadcasting = false
         if (!this.errorOnApproval) {
+          console.log('Got here approve success')
           this.$router.push(`/success`)
         }
+        console.log('Got here approve 4')
       }
     },
     async reject() {
