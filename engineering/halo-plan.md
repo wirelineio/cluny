@@ -18,8 +18,12 @@ The goal for HALO wallet support is to move the key management, message signing 
  
 ## Spec/Features
 
+Included features:
  1. Single seed phrase across WNS and Halo (verify this has both no privacy implications nor HD key weakness attack issues).
  1. Meaningful approval data display for the user (so they can't be tricked into approving a malicious transaction).
+ 
+Excluded from this release:
+ 1. ??
 
 ## Potential Problems
 
