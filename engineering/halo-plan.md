@@ -21,6 +21,11 @@ The goal for HALO wallet support is to move the key management, message signing 
 Included features:
  1. Single seed phrase across WNS and Halo (verify this has both no privacy implications nor HD key weakness attack issues).
  1. Meaningful approval data display for the user (so they can't be tricked into approving a malicious transaction).
+ 1. Support party create.
+ 1. Support party greet/admit for online greeting.
+ 1. Support party invite for online greeting.
+ 1. Support party invite for offline greeting.
+ 1. Support party greet/admit for offline greeting.
  
 Excluded from this release:
  1. ??
