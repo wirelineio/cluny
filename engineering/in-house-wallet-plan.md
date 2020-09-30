@@ -9,6 +9,15 @@
  - [ ] Display balance
  - [ ] Register Kube
  - [ ] Receive funds from Kubenet liveness alms distribution service
+ 
+ Components:
+ 
+ https://github.com/dxos/console/tree/dboreham/wallet (yarn start console-app)
+ 
+ https://github.com/wirelineio/registry-client/tree/dboreham/wallet-hack (yarn link into console)
+ 
+ https://github.com/wirelineio/cluny/tree/dboreham/hack (yarn watch as per readme)
+ 
 
 ## Wallet 1 (1st in-house)
 
