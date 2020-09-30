@@ -1,0 +1,1 @@
+# Halo Wallet Support
