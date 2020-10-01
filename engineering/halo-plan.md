@@ -30,6 +30,9 @@ Included features:
 Excluded from this release:
  1. ??
 
+For discussion:
+ 1. Do we preserve the current "master identity key not required after onboarding" property of the design, or do we adopt the blockchain practice of importing the seed phrase on all machines that have a wallet?
+
 ## Potential Problems
 
  1. HD key family shared between blockchain and HALO may have cryptographic weaknesses.
