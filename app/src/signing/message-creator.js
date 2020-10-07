@@ -8,6 +8,8 @@ async function getNetworkSpecificMessageCreator(network, messageType) {
     throw new Error(`Signing for this ${network} is not enabled.`)
   }
   const messageFormatter = networkMessages[messageType]
+  console.log('messageFormatter', messageFormatter)
+  console.log('messageType', messageType)
 
   if (!messageFormatter) {
     throw new Error(

@@ -155,7 +155,7 @@ export default class TransactionManager {
       message,
       polkadotAPI
     )
-    console.log('Here createAndSignLocally2')
+    console.log('Here createAndSignLocally2, messages: ', messages)
     const signer = await getSigner(
       signingType,
       {
